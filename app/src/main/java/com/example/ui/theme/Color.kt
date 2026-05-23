@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 val PrimaryOrange = Color(0xFFF3842C)
 val LightOrange = Color(0xFFFFEAD8)
-val CreamBackground = Color(0xFFF5F6FC)
+val CreamBackground = Color(0xFFFAF6F2)
 val SoftWhite = Color(0xFFFFFFFF)
 val DarkBlack = Color(0xFF131315)
 val SurfaceMedium = Color(0xFFF5EFEA)

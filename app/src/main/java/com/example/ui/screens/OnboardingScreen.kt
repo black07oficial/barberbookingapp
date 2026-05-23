@@ -1,12 +1,6 @@
 package com.example.ui.screens
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.with
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -65,7 +59,6 @@ data class OnboardingPage(
     val gradientColors: List<Color>
 )
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun OnboardingScreen(
     onFinished: () -> Unit,
@@ -131,20 +124,12 @@ fun OnboardingScreen(
         }
 
         // SWAPPABLE HERO ILLUSTRATION & TEXT INFO (animated slider concept)
-        AnimatedContent(
+        Crossfade(
             targetState = currentPageIndex,
-            transitionSpec = {
-                if (targetState > initialState) {
-                    slideInHorizontally { width -> width } + fadeIn() with
-                            slideOutHorizontally { width -> -width } + fadeOut()
-                } else {
-                    slideInHorizontally { width -> -width } + fadeIn() with
-                            slideOutHorizontally { width -> width } + fadeOut()
-                }
-            },
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            label = "onboarding_slider"
         ) { pageIndex ->
             val page = pages[pageIndex]
             Column(

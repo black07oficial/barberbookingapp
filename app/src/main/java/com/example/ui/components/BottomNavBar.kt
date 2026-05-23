@@ -61,9 +61,8 @@ fun BottomNavBar(
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(72.dp)
-                .padding(horizontal = 12.dp, vertical = 6.dp)
-                .clip(RoundedCornerShape(24.dp))
+                .height(80.dp)
+                .clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp))
                 .testTag("app_bottom_nav_bar"),
             color = SoftWhite,
             tonalElevation = 8.dp,
@@ -161,7 +160,7 @@ private fun NavBarItem(
         modifier = modifier
             .clip(RoundedCornerShape(12.dp))
             .clickable(onClick = onClick)
-            .padding(horizontal = 8.dp, vertical = 6.dp),
+            .padding(horizontal = 16.dp, vertical = 6.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -169,12 +168,7 @@ private fun NavBarItem(
             imageVector = if (isSelected) selectedIcon else unselectedIcon,
             contentDescription = label,
             tint = if (isSelected) PrimaryOrange else TextSoftGrey,
-            modifier = Modifier.size(24.dp)
-        )
-        Text(
-            text = label,
-            fontSize = 10.sp,
-            color = if (isSelected) PrimaryOrange else TextSoftGrey
+            modifier = Modifier.size(26.dp)
         )
     }
 }
